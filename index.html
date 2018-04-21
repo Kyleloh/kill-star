@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #020d34;
+        }
+
+        .wrap {
+            transform: rotate(-90deg);
+            transform-origin: 150px 150px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .row {}
+
+        .row:after {
+            content: '';
+            display: block;
+            float: none;
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            width: 29px;
+            height: 29px;
+            opacity: 0.6;
+            border-left: 1px solid #020d34;
+            border-top: 1px solid #020d34;
+            border-radius: 8px;
+        }
+
+        .no-opacity {
+            opacity: 1;
+        }
+        .score{
+            color:#fff;
+        }
+    </style>
+
+    <div id="box">
+        <div class="wrap">
+            <div class="row" v-for="(row, x) in rows">
+                <div class="col" :class="{'no-opacity': selected.indexOf(x+','+y)!=-1}" v-for="(itemY, y) in row" @click="clickHandler(x,y)"
+                    :style="{background: colors[parseInt(itemY)]}">
+                    <!-- {{itemY}} -->
+                </div>
+            </div>
+        </div>
+        <div class="score">score: {{score}}</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
