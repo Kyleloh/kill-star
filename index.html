@@ -61,13 +61,11 @@
             <div class="row" v-for="(row, x) in rows">
                 <div class="col" :class="{'no-opacity': selected.indexOf(x+','+y)!=-1}" v-for="(itemY, y) in row" @click="clickHandler(x,y)"
                     :style="{background: colors[parseInt(itemY)]}">
-                    <!-- {{itemY}} -->
                 </div>
             </div>
         </div>
         <div class="score">score: {{score}}</div>
     </div>
-    <!-- <canvas id="canvas"></canvas> -->
     <script src="node_modules/vue/dist/vue.min.js"></script>
     <script src="index.js"></script>
 </body>
